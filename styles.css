@@ -59,13 +59,13 @@ body {
     font-size: 24px;
     margin-bottom: 20px;
 }
-.images {
+.Images {
     display: flex;
     justify-content: center;
     gap: 20px;
     margin-bottom: 10px;
 }
-.images img {
+.Images img {
     width: 200px;
     height: 150px;
     object-fit: cover;

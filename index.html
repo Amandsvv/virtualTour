@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DSVV Virtual Tour</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <button class="hamburger" >☰</button>
+    <div class="sidebar hidden" id="sidebar" >
+      <h3>Places You Must See</h3>
+      <div id="places"></div>
+    </div>
+    <div class="content">
+      <h1 class="title">DSVV Virtual Tour</h1>
+      <div class="images" id="imageContainer">
+        <img src="images/dsvv1.jpg" alt="Main View 1">
+        <img src="images/dsvv2.jpg" alt="Main View 2">
+        <img src="images/dsvv3.jpg" alt="Main View 3">
+      </div>
+      <div class="place-name" id="placeName"></div>
+      <div class="tabs">
+        <div class="tab-btn active" onclick="switchTab('description')">Description</div>
+        <div class="tab-btn" onclick="switchTab('photos')">Photos</div>
+        <div class="tab-btn" onclick="switchTab('video')">Videos</div>
+      </div>
+      <div class="tab-content" id="descriptionTab"></div>
+      <div class="tab-content" id="photosTab" style="display:none;"></div>
+      <div class="tab-content" id="videoTab" style="display:none;"></div>
+    </div>
+  </div>
+</body>
+<script src="script.js"></script>
+</html>

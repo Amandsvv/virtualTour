@@ -3,11 +3,12 @@
 body {
     margin: 0;
     font-family: "Poppins",sans-serif;
-    background: #fff;
+      overflow-y: auto;
+    overflow-x: hidden;
 }
 .container {
     display: flex;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 .hamburger {
@@ -22,10 +23,10 @@ body {
 }
 
 .sidebar {
-  background: #dcc9f4;
+  background: #3025ff;
+  color: white      ;
   padding: 20px;
   width: 250px;
-  height: 100vh;
 }
 
 .sidebar .hidden {
@@ -34,19 +35,24 @@ body {
 }
 
 .sidebar h3 {
-    border-bottom: 1px solid #000;
+    font-weight: 300;
+    text-align: center;
+    border-bottom: 1px solid #ffffff;
     padding-bottom: 10px;
 }
 .place {
     margin: 10px 0;
     cursor: pointer;
     padding: 8px;
-    background: #d1baf0;
+    background: #4164ff;
     text-align: center;
     border-radius: 4px;
 }
 .place:hover {
-    background: #c4a8f0;
+    background: #3025ff;;
+}
+.place:active{
+    background: #3025ff;
 }
 .content {
     flex: 1;
@@ -54,14 +60,62 @@ body {
     overflow-y: auto;
 }
 .title {
-    font-family: "Lobster Two", sans-serif;
     text-align: center;
-    font-size: 24px;
+    font-size: 30px;
     margin-bottom: 20px;
 }
+.carousel {
+  position: relative;
+  width: 100%;
+  height: 60vh;
+  overflow: hidden;
+  margin-bottom: 30px;
+  border-radius: 10px;
+}
+
+
+.slides {
+  display: flex;
+  width: 100%; 
+  height: 100%;
+  transition: transform 0.5s ease;
+}
+
+.slides img {
+  width: 100%; 
+  height: 100%;
+  object-fit:cover;
+  flex-shrink: 0; 
+}
+
+
+.dots {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+}
+
+.dots span {
+  width: 12px;
+  height: 12px;
+  background-color: #ddd;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dots span.active {
+  background-color: #3025ff;
+}
+
+
 .Images {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     gap: 20px;
     margin-bottom: 10px;
 }
@@ -85,11 +139,12 @@ body {
 }
 .tab-btn {
     padding: 10px 20px;
-    background: #ddd;
+    background: #8ba0fc;
     cursor: pointer;
+    border-radius: 15px;
 }
 .tab-btn.active {
-    background: #a78fd1;
+    background: #3025ff;
     color: white;
 }
 .tab-content {
@@ -114,6 +169,7 @@ iframe {
     left: 0;
     z-index: 99;
     width: 220px;
+    height: 100%;
     transition: transform 0.3s ease-in-out;
     transform: translateX(0);
   }
@@ -124,5 +180,9 @@ iframe {
 
   .hamburger {
     display: block;
+  }
+
+    .carousel {
+    height: 40vh;
   }
 }

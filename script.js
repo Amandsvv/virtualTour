@@ -1,7 +1,7 @@
 
 const data = {
     "Auditoriums": {
-        "Images": ["Images/audi1.jpg", "Images/audi2.jpg", "Images/audi3.jpg"],
+        "Images": ["Images/audi1.jpeg", "Images/audi2.jpg", "Images/audi3.jpg"],
         "description": "The auditorium at Dev Sanskriti Vishwavidyalaya is a vibrant center for cultural, academic, and spiritual expression. It hosts seminars, guest lectures, musical and dance performances, as well as sacred discourses. Designed with acoustics and elegance in mind, the space inspires inner growth and collective harmony. The auditorium is not just a venue—it is a confluence of learning, values, and soulful celebration.",
         "video": "https://www.youtube.com/embed/IeAk7F2T8P4?si=99PVx3J-Pcb44ZO3"
     },
@@ -21,6 +21,50 @@ const data = {
         "video": "https://www.youtube.com/embed/sampleAuditorium"
     }
 };
+
+let currentSlide = 0;
+const slides = document.querySelector('.slides');
+const totalSlides = slides.children.length;
+const dotsContainer = document.getElementById('dots');
+
+// Generate dots
+for (let i = 0; i < totalSlides; i++) {
+  const dot = document.createElement('span');
+  dot.addEventListener('click', () => goToSlide(i));
+  dotsContainer.appendChild(dot);
+}
+const dots = dotsContainer.querySelectorAll('span');
+dots[0].classList.add('active');
+
+function goToSlide(index) {
+  currentSlide = index;
+  slides.style.transform = `translateX(-${index * 100}%)`;
+  updateDots();
+}
+
+function updateDots() {
+  dots.forEach(dot => dot.classList.remove('active'));
+  dots[currentSlide].classList.add('active');
+}
+
+function nextSlide() {
+  currentSlide = (currentSlide + 1) % totalSlides;
+  goToSlide(currentSlide);
+}
+
+let autoSlide = true;
+
+document.querySelector('.carousel').addEventListener('mouseenter', () => autoSlide = false);
+document.querySelector('.carousel').addEventListener('mouseleave', () => autoSlide = true);
+
+function startAutoSlide() {
+  setTimeout(() => {
+    if (autoSlide) nextSlide();
+    startAutoSlide();
+  }, 4000);
+}
+
+startAutoSlide();
 
 const placesContainer = document.getElementById('places');
 Object.keys(data).forEach(place => {
